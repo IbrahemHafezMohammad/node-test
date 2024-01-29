@@ -1,3 +1,4 @@
+const { error } = require("console");
 const fs = require("fs");
 
 const requestHandler = (req, res) => {
@@ -29,8 +30,8 @@ const requestHandler = (req, res) => {
     return req.on("end", () => {
       const parsedBody = Buffer.concat(body).toString();
       console.log("parsed body", parsedBody);
-      const message = parsedBody.split("=")[1];
-      fs.writeFile("messge.txt", message, () => {
+      const message = parsedBody.split("=")[1];    
+      fs.writeFile("message.txt", message, error => {
         console.log("writing file");
         res.writeHead(302, { Location: "/" });
         // res.statusCode = 302;
@@ -55,4 +56,4 @@ const requestHandler = (req, res) => {
 // module.exports.handler = requestHandler;
 
 exports.handler = requestHandler;
-exports.someText = 'Some Hard Coded text';
+exports.someText = "Some Hard Coded text";
