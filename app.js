@@ -1,29 +1,18 @@
-// const http = require('http');
-
 const express = require("express");
+const bodyParser = require("body-parser");
 
-// const routes = require('./example-routes');
-
-// console.log(routes.someText);
-
-// const server = http.createServer(routes.handler);
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log("in the middleware");
-  next();
-});
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(adminRoutes);
+app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  console.log("in another middleware");
-  // res.statusCode = 200;
-  // res.setHeader('Content-Type', 'application/json')
-  res.send("<h1>Hello Bitch!</h1>");
+  res.status(404).send('<h1> Page Not Found </h1>');
 });
-
-// const server = http.createServer(app);
-
-// server.listen(3000);
 
 app.listen(3000);
