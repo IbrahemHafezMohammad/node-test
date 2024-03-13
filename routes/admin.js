@@ -5,7 +5,7 @@ const path = require('path');
 
 const rootDir = require('../util/path');
 
-const product = [];
+const products = [];
 
 router.get("/add-product", (req, res, next) => {
     console.log("in add-product middleware");
@@ -14,10 +14,10 @@ router.get("/add-product", (req, res, next) => {
   });
   
   router.post("/add-product", (req, res, next) => {
-    product.push({title: req.body.title});
+    products.push({title: req.body.title});
     res.redirect("/");
   });
 
 exports.routes = router;
-exports.product = product;
+exports.products = products;
 
