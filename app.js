@@ -8,8 +8,9 @@ const expressHbs = require('express-handlebars');
 const rootDir = require('./util/path');
 
 const path = require('path');
-const adminData = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const errorController = require('./controllers/error')
 
 const app = express();
 
@@ -25,12 +26,10 @@ app.set('views', 'views');// this is the default (no need for this line)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
-app.use((req, res, next) => {
-  res.status(404).render('404', { pageTitle: 'Page Not Found' })
-});
+app.use(errorController.get404);
 
 app.listen(3000);
 // const server = http.createServer(routes.handler);
