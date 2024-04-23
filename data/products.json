@@ -1,1 +1,16 @@
-[{"title":"a book","imageUrl":"https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip","desc":"this is a great book!","price":"199"},{"title":"asd","imageUrl":"https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip","desc":"some book","price":"19.99"}]
+[
+    {
+        "id": "298473",
+        "title": "a book",
+        "imageUrl": "https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip",
+        "desc": "this is a great book!",
+        "price": "199"
+    },
+    {
+        "id": "651156",
+        "title": "asd",
+        "imageUrl": "https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip",
+        "desc": "some book",
+        "price": "19.99"
+    }
+]
