@@ -6,6 +6,9 @@ const p = path.join(rootDir, 'data', 'cart.json');
 
 module.exports = class Cart {
     static addProduct(id, productPrice) {
+        // Parse productPrice to a number
+        productPrice = parseFloat(productPrice);
+
         fs.readFile(p, (err, fileContent) => {
             let cart = { products: [], totalPrice: 0 };
             if (!err) {
@@ -22,6 +25,7 @@ module.exports = class Cart {
             } else {
                 cart.products.push({ id: id, qty: 1 });
             }
+            // Update totalPrice as a number
             cart.totalPrice += productPrice;
 
             fs.writeFile(p, JSON.stringify(cart), err => {
